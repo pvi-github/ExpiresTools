@@ -17,13 +17,14 @@ then
 
 	Your account is expired. 
 	You should not have beenable to connect"
-	${NOTIFY_SEND_BIN} "${vMessage}" 5
+	${NOTIFY_SEND_BIN} "${vMessage}" 
 elif [ $vExpires -lt $(($vNow + 30*24*60*60)) ]
 then
 	echo "Your account will expire in $(( ($vExpires - $vNow)/24/60/60 )) days"
 	vMessage="SECURITY WARNING
 
-	Your account will expire in $(( ($vExpires - $vNow)/24/60/60 )) days"
-	${NOTIFY_SEND_BIN} "${vMessage}" 5
+	Your account will expire in $(( ($vExpires - $vNow)/24/60/60 )) days
+	Please update your password as soon as possible !"
+	${NOTIFY_SEND_BIN} "${vMessage}" 
 fi
 
